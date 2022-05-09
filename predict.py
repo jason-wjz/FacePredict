@@ -1,5 +1,5 @@
 import streamlit as st      # import 完了之后直接填网页内容
-import opencv-python as cv2
+import opencv--python as cv2
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
