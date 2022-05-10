@@ -180,7 +180,7 @@ st.subheader('本网页预测结果99%正确！')
 @st.cache
 def img_process(image):
     image = np.array(Image.open(image), dtype=np.uint8)     # 要把照片转换成 numpy多维数组
-    haar = cv2.CascadeClassifier("./haarcascade_frontalface_alt.xml")  # 这个是人脸识别的文件
+    haar = cv2.CascadeClassifier("D:/Python38/Lib/site-packages/cv2/data/haarcascade_frontalface_alt.xml")  # 这个是人脸识别的文件
     faces = haar.detectMultiScale(image)  # 这一步是人脸检测
     x, y, w, h = faces[0, :]  # 左上角点的 x,y，以及对应的宽度、高度
     your_face = image[y:y + w, x:x + h, :]  # 在整个照片中截取你的脸
@@ -207,15 +207,22 @@ if model_select == 'BP':
     st.text('你选择了BP模型')
     with st.expander('点击查看模型代码：'):
         st.code(txt_BP, language='python')
+    if st.button('点击检测：'):
+        try:
+            sex = img_process(img)
+            st.subheader(f'>>>>>预测结果为{sex}性')
+        except:
+            st.subheader('未检测出人脸')
 
 elif model_select == 'CNN':
     model = tf.keras.models.load_model('./CNN - faces.h5')
     st.text('你选择了CNN模型')
     with st.expander('点击查看模型代码：'):
         st.code(txt_CNN, language='python')
+    if st.button('点击检测：'):
+        try:
+            sex = img_process(img)
+            st.subheader(f'>>>>>预测结果为{sex}性')
+        except:
+            st.subheader('未检测出人脸')
 
-try:
-    sex = img_process(img)
-    st.subheader(f'>>>>>预测结果为{sex}性')
-except:
-    st.subheader(f'未检测出人脸')
