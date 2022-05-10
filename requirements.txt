@@ -8,5 +8,4 @@ tensorflow-io-gcs-filesystem==0.25.0
 numpy==1.21.6
 Pillow==7.1.1
 libclang==13.0.0
-libgl1
 libglvnd
