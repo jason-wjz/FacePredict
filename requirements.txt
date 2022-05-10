@@ -1,5 +1,5 @@
 streamlit==1.9.0
-opencv-python==4.5.5.64
+opencv-python
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
@@ -8,4 +8,3 @@ tensorflow-io-gcs-filesystem==0.25.0
 numpy==1.21.6
 Pillow==7.1.1
 libclang==13.0.0
-libglvnd
